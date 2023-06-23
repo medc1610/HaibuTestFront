@@ -15,10 +15,10 @@ export class UserService {
     private http: HttpClient
   ) { }
 
-  getTeam(): Observable<User[]> {
+  getUser(): Observable<User[]> {
     return this.http.get<User[]>(this.url)
   }
-  getUser(id: number): Observable<User> {
+  getUserId(id: number): Observable<User> {
     return this.http.get<User>(`${this.url}/${id}`)
   }
 }

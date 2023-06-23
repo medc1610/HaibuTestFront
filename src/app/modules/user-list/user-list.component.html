@@ -1,1 +1,49 @@
-<p>user-list works!</p>
+<section>
+    <div class="center">
+      <mat-card class="card" *ngIf="user">
+        <mat-card-header>
+          <mat-card-title>{{ user.nombre }} {{ user.apellido }} </mat-card-title>
+          <mat-card-subtitle>
+            Personal {{ user.activo !== 0 ? "Activo" : "Inactivo" }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <hr />
+        <mat-card-content>
+          <ul>
+            <li>
+              <span class="key">ID: </span>
+              <span>{{ user.id }}</span>
+            </li>
+            <li>
+              <span class="key">Rut: </span>
+              <span>{{ user.rut }}</span>
+              <br />
+              <p class="alert" *ngIf="!rutIsValid">El Rut no es válido</p>
+            </li>
+            <li>
+              <span class="key">Fecha de nacimiento: </span>
+              <span>{{ user.fechaNacimiento }}</span>
+              <br />
+              <p class="alert" *ngIf="!dateIsValid">La fecha no es válida</p>
+            </li>
+            <li>
+              <span class="key">Teléfono: </span>
+              <span>+{{ user.telefono }}</span>
+            </li>
+            <li>
+              <span class="key">Dirección: </span>
+              <span>
+                {{ user.direccion.calle | titlecase }},
+                {{ user.direccion.numero }}, {{ user.direccion.comuna | titlecase
+                }}{{ user.direccion.nombre | titlecase }}
+              </span>
+            </li>
+          </ul>
+          <button mat-flat-button color="warn" (click)="back()">
+            Retroceder
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+  
