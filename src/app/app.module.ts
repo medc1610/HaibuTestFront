@@ -14,6 +14,7 @@ import { HeaderComponent } from './core/header/header.component';
     HeaderComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule
